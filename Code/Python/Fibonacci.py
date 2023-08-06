@@ -1,5 +1,5 @@
 import time
-import resource
+import tracemalloc
 
 def fibonacci(n):
     if n <= 0:
@@ -16,17 +16,17 @@ def fibonacci(n):
 
 def main():
     n = int(input("Ingrese el valor de n para calcular los primeros n números de Fibonacci: "))
-    initial_memory_usage = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024.0  # Convert to KB
+    tracemalloc.start()
     start_time = time.time()
     fib_sequence = fibonacci(n)
     end_time = time.time()
 
-    final_memory_usage = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024.0  # Convert to KB
+    
 
     print("Secuencia de Fibonacci:", fib_sequence)
     print(f"Tiempo de ejecución: {end_time - start_time:.6f} segundos")
-    print(f"Uso de memoria: Inicial:{initial_memory_usage:.2f}KB;Final:{final_memory_usage:.2f} KB")
-
+    print(f"Uso de memoria:{tracemalloc.get_tracemalloc_memory()} bytes")
+    tracemalloc.stop()
 
 if __name__ == "__main__":
     main()
