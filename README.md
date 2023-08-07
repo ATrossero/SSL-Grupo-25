@@ -6,3 +6,4 @@ SSL Grupo 25 K2055
 ### Guillermo F. Cacace (git: GFCACACE)
 ### Manuel F. Gomez Pereyra (git: manugomezp)
 ### Ignacio Caló (I-Calo)
+### Cecilua Majer (ceciliamajer)
