@@ -1,6 +1,8 @@
 import time
 import tracemalloc
 
+
+#Algoritmo que realiza la función de fibonacci de un número n.
 def fibonacci(n):
     if n <= 0:
         return []
@@ -15,17 +17,25 @@ def fibonacci(n):
         return fib_sequence
 
 def main():
-    n = int(input("Ingrese el valor de n para calcular los primeros n números de Fibonacci: "))
+    #Número n de fibonacci a calcular
+    n = 150
+    #Iniciamos el registro de la memoria consumida del programa
     tracemalloc.start()
+    #Registramos tiempo en el que va a iniciar la función de Fibonacci
     start_time = time.time()
+    #Se ejecuta la función
     fib_sequence = fibonacci(n)
+    #Registramos el momento en el que se termina de ejecutar la función
     end_time = time.time()
+    #Calculamos la diferencia de tiempo para saber cuánto tomó
+    execution_time = end_time - start_time
 
     
-
+    #Imprimimos los parámetros
     print("Secuencia de Fibonacci:", fib_sequence)
-    print(f"Tiempo de ejecución: {end_time - start_time:.6f} segundos")
+    print(f"Tiempo de ejecución: {execution_time:.15f} segundos")
     print(f"Uso de memoria:{tracemalloc.get_tracemalloc_memory()} bytes")
+    #Una vez demostrado el uso de memoria podemos cerrar el registro.
     tracemalloc.stop()
 
 if __name__ == "__main__":
