@@ -10,17 +10,17 @@ fibonacci n
     | n == 2 = [0, 1]
     --Caso recursivo
     | otherwise = fibonacci' [0, 1] (n - 2)
-    where fibonacci' xs count
-            | count <= 0 = xs
-            | otherwise = fibonacci' (xs ++ [sum $ drop (length xs - 2) xs]) (count - 1)
+    where fibonacci' cola conteo
+            | conteo <= 0 = cola
+            | otherwise = fibonacci' (cola ++ [sum $ drop (length cola - 2) cola]) (conteo - 1)
 
 {-Función bubbleSort-}
 bubbleSort :: Ord a => [a] -> [a]
 --Caso base
 bubbleSort [] = []
 --Caso recursivo
-bubbleSort xs = bubbleSort (init sorted) ++ [last sorted]
-    where sorted = foldr bubble [] xs
+bubbleSort cola = bubbleSort (init ordenado) ++ [last ordenado]
+    where ordenado = foldr bubble [] cola
           bubble x [] = [x]
           bubble x (y:ys)
               | x <= y = x:y:ys
