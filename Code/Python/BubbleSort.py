@@ -4,9 +4,12 @@ import tracemalloc
 
 #Función de bubble_sort, que lo que hace es ordenar una lista de n elementos por orden numérico
 def bubble_sort(lista):
+    #n es el largo de la lista
     n = len(lista)
     for i in range(n):
+        #lo hacemos tantas veces como lugares en la lista - 1
         for j in range(0, n - i - 1):
+            #Si el número anterior es mayor al siguiente, intercambiamos el orden
             if lista[j] > lista[j + 1]:
                 lista[j], lista[j + 1] = lista[j + 1], lista[j]
 

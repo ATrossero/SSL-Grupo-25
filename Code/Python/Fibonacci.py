@@ -15,6 +15,7 @@ def fibonacci(n):
         #Caso recursivo
         secuencia_fibonacci = [0, 1]
         for i in range(2, n):
+            #se agrega a la lista el cálculo del número siguiente de la secuencia
             secuencia_fibonacci.append(secuencia_fibonacci[i - 1] + secuencia_fibonacci[i - 2])
         return secuencia_fibonacci
 
